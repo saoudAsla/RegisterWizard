@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      form {
+        align-content: center;
+        align-self: flex-start;
+      }
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <form>
+      <label for="name">Name: <input type="text" name="name" required/></label>
+      <label for="email"
+        >Email: <input type="text" name="email" required
+      /></label>
+      <label for="bday"
+        >Birth Date: <input type="date" name="bday" required
+      /></label>
+      <label for="city">City: <input type="text" name="city" required/></label>
+      <label for="street"
+        >Street: <input type="text" name="street" required
+      /></label>
+      <label for="number">
+        Number: <input type="number" name="number" required
+      /></label>
+      <img
+        src="https://cdn.shopify.com/s/files/1/0008/1274/4765/products/2e67479ae6ce1e0b5d3ad9ca81bab7d4.png?v=1539881292"
+        alt="Image"
+      />
+    </form>
+
+    <script>
+      let form = document.querySelector("form");
+      const hobbies = ["Surfing", "Music", "Reading", "Basketball"];
+
+      hobbies.forEach(h => {
+        form.append(h);
+        let el = document.createElement("input");
+        el.setAttribute("type", "checkbox");
+        el.setAttribute("name", h);
+        el.setAttribute("value", h);
+        el.addEventListener("change", function(e) {
+          console.log(this.value);
+        });
+
+        let lb = document.createElement("label");
+        lb.setAttribute("for", h);
+        lb.appendChild(el);
+
+        //el.innerHTML = h;
+        form.appendChild(lb);
+      });
+    </script>
+  </body>
+</html>
